@@ -26,7 +26,7 @@ public class HomePageTest extends Base {
 
 	private static Logger logger = LoggerFactory.getLogger(HomePageTest.class);
 
-
+	// getting properties
 	String url = ConfigReader.getProperty("url");
 	String origin = ConfigReader.getProperty("origin");
 	String destination = ConfigReader.getProperty("destination");
@@ -34,9 +34,11 @@ public class HomePageTest extends Base {
 	int returnDay = Integer.parseInt(ConfigReader.getProperty("returnDay"));
 	boolean isDirect = Boolean.parseBoolean(ConfigReader.getProperty("isDirect"));
 
+	// getting the assertion properties
 	String assertionUrl = ConfigReader.getPropertyAssertion("assertionUrl");
 	String assertionHeader = ConfigReader.getPropertyAssertion("assertionHeader");
 
+	// initilazation the driver
 	@BeforeTest
 	public void initialize() throws IOException {
 		driver = initializeDriver();
@@ -45,14 +47,16 @@ public class HomePageTest extends Base {
 	}
 
 
-
+	// start to test
 	@Test
 	public void HomePageVerification() throws InterruptedException {
 
+		// initilaze the pages
 		HomePage hp = new HomePage(driver);
 		FlightsPage fp = new FlightsPage(driver);
 		PaymentPage pp = new PaymentPage(driver);
 
+		// check the url
 		try {
 			Assert.assertEquals(hp.welcomeHeader().getText(),assertionHeader);
 			Assert.assertEquals(hp.driver.getCurrentUrl(),assertionUrl);
@@ -62,6 +66,7 @@ public class HomePageTest extends Base {
 			System.out.println("Website Could not opened properly "+e);
 			logger.error("Driver checked, Driver url is not correct");
 		}
+		// sending the origin text
 		try {
 			Assert.assertTrue(hp.originInput().isDisplayed());
 			Assert.assertTrue(hp.originInput().isEnabled());
@@ -73,6 +78,7 @@ public class HomePageTest extends Base {
 			System.out.println("Click is intercepted "+e);
 			logger.error("Origin input could not clicked");
 		}
+		// sending the destination text
 		try {
 			Assert.assertTrue(hp.originCitySelect().isDisplayed());
 			Assert.assertTrue(hp.originCitySelect().isEnabled());
@@ -84,6 +90,7 @@ public class HomePageTest extends Base {
 			System.out.println("Click is intercepted or element couldn't found "+e);
 			logger.error("Origin city could not added");
 		}
+		// Destionaiton city selected
 		try {
 			Assert.assertTrue(hp.destinationCitySelect().isDisplayed());
 			Assert.assertTrue(hp.destinationCitySelect().isEnabled());
@@ -94,6 +101,7 @@ public class HomePageTest extends Base {
 			System.out.println("Click is intercepted or element couldn't found "+e);
 			logger.error("Destination city could not added");
 		}
+		// Origin date opened
 		try {
 			Assert.assertTrue(hp.originDateCalendar().isDisplayed());
 			Assert.assertTrue(hp.originDateCalendar().isEnabled());
@@ -105,6 +113,8 @@ public class HomePageTest extends Base {
 			logger.error("Origin Date calendar could ot opened");
 		}
 		try {
+			// scroller the page for selection item
+			// selecting the departure day
 
 			hp.scroller(driver);
 			Assert.assertTrue(hp.daySelecter(departureDay).isDisplayed());
@@ -116,6 +126,7 @@ public class HomePageTest extends Base {
 			System.out.println("Your value out of index or Element couldnt find "+e);
 			logger.error("Departure day could not selected");
 		}
+			// Uncheck the one way checkbox
 		try {
 			Assert.assertTrue(hp.oneWayCheckbox().isDisplayed());
 			Assert.assertTrue(hp.oneWayCheckbox().isEnabled());
@@ -127,9 +138,10 @@ public class HomePageTest extends Base {
 			System.out.println("Click is intercepted or element couldn't found "+e);
 			logger.error("One way check box could not checked");
 		}
+		// getting the date for assertion later in the test
 		String startDate = hp.departureDate().getAttribute("value");
 		System.out.println(startDate);
-
+		// picking the return date
 		try {
 			Assert.assertTrue(hp.daySelecter(returnDay).isDisplayed());
 			Assert.assertTrue(hp.daySelecter(returnDay).isEnabled());
@@ -141,10 +153,10 @@ public class HomePageTest extends Base {
 			System.out.println("Your value out of index or Element couldnt find "+e);
 			logger.error("Return day could not selected");
 		}
-
+		// getting the values for later assetions
 		String returnDate = hp.returnDayField().getAttribute("value");
 		System.out.println(returnDate);
-
+		// check the transit checkbox
 		try {
 			Assert.assertTrue(isDirect);
 			hp.transitFilterCheck(isDirect);
@@ -154,6 +166,7 @@ public class HomePageTest extends Base {
 			System.out.println("Could not get the values from data.properties file "+e);
 			logger.error("Is direct check box could not selected");
 		}
+		// clicking the find ticket button
 		try {
 			Assert.assertTrue(hp.findTicket().isDisplayed());
 			Assert.assertTrue(hp.findTicket().isEnabled());
@@ -164,6 +177,7 @@ public class HomePageTest extends Base {
 			System.out.println("Click is intercepted or element couldn't found "+e);
 			logger.error("Find ticker could not selected");
 		}
+		// picking the origin flight
 		try {
 			Assert.assertTrue(fp.originFlightPicker().isDisplayed());
 			Assert.assertTrue(fp.originFlightPicker().isEnabled());
@@ -174,8 +188,9 @@ public class HomePageTest extends Base {
 			System.out.println("Click is intercepted or element couldn't found "+e);
 			logger.error("Origin flight could not selected");
 		}
+		// getting the value for later test assertions
 		String startFlightProviderName = fp.startFlightProvider().getText();
-
+		// picking the return flight
 		try {
 			Assert.assertTrue(fp.returnFlightPicker().isDisplayed());
 			Assert.assertTrue(fp.returnFlightPicker().isEnabled());
@@ -186,8 +201,9 @@ public class HomePageTest extends Base {
 			System.out.println("Click is intercepted or element couldn't found "+e);
 			logger.error("Return flight couldnt clicked");
 		}
+		// getting the value for later testing
 		String returnFlightProviderName = fp.returnFlightProvider().getAttribute("alt");
-
+		// picking the package
 		try {
 			Assert.assertTrue(fp.packagePicker().isDisplayed());
 			Assert.assertTrue(fp.packagePicker().isEnabled());
@@ -198,6 +214,7 @@ public class HomePageTest extends Base {
 			System.out.println("Click is intercepted or element couldn't found "+e);
 			logger.error("Package picker could not clicked");
 		}
+		// Asseritons added
 		try {
 			Assert.assertEquals(origin+" "+destination,pp.reservationTitle().getText());
 			Assert.assertEquals(startDate.split(",")[0],pp.startDate().getText().split(",")[0]); // check dates
