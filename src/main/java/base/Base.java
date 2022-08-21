@@ -1,6 +1,5 @@
 package base;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -10,9 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+
 import org.openqa.selenium.safari.SafariDriver;
 
 public class Base {
@@ -21,20 +18,10 @@ public class Base {
 
 	public WebDriver initializeDriver() throws IOException {
 
-		//prop = new Properties();
-		// System.getProperties("user.dir")
-		//FileInputStream fis = new FileInputStream(
-		//System.getProperty("user.dir") + "\\src\\main\\resources\\data.properties");
-
-		//prop.load(fis);
-		// mvn test -Dbrowser=chrome
-		//String browserName = System.getProperty("browser");
 		String browserName = ConfigReader.getProperty("browser");
 		System.out.println(browserName);
 		ChromeOptions options = new ChromeOptions();;
 		options.addArguments("--disable-notifications");
-		//options.AddUserProfilePreference("profile.default_content_setting_values.cookies", 2);
-
 
 		if (browserName.contains("chrome")) {
 			WebDriverManager.chromedriver().setup();
@@ -61,15 +48,6 @@ public class Base {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		return driver;
-
-	}
-
-	public String getScreenShotPath(String testCaseName, WebDriver driver) throws IOException {
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		String destinationFile = System.getProperty("user.dir") + "\\reports\\" + testCaseName + ".png";
-		FileUtils.copyFile(source, new File(destinationFile));
-		return destinationFile;
 
 	}
 

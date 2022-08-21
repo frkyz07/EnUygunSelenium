@@ -1,3 +1,0 @@
-13:51:37.271 [AsyncHttpClient-1-2] DEBUG org.asynchttpclient.netty.channel.ChannelManager - Adding key: http://localhost:58407 for channel [id: 0x3460f0fb, L:/127.0.0.1:59821 - R:localhost/127.0.0.1:58407]
-13:51:37.274 [AsyncHttpClient-1-2] TRACE io.netty.handler.logging.LoggingHandler - [id: 0x3460f0fb, L:/127.0.0.1:59821 - R:localhost/127.0.0.1:58407] READ COMPLETE
-13:51:37.302 [AsyncHttpClient-1-2] TRACE io.netty.handler.logging.LoggingHandler - [id: 0x3460f0fb, L:/127.0.0.1:59821 - R:localhost/127.0.0.1:58407] READ COMPLETE

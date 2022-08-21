@@ -14,9 +14,6 @@ public class PaymentPage {
     By flightProviderName = By.xpath("//div[@id='flightItemdeparture']//div[@class='airline-name']/span");
     By returnFlightProviderName = By.xpath("//div[@data-testid='flightItemreturn1']//div[@class='airline-name']/span");
 
-    By originAirport = By.xpath("(//div[@id='flightItemdeparture'] //div[@data-testid='departureFlightInfo'])[1]");
-    By returnAirport = By.xpath("(//div[@id='flightItemreturn'] //div[@class='airport-name'])[1]");
-
     public PaymentPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -34,8 +31,7 @@ public class PaymentPage {
         return driver.findElement(flightProviderName);
     }
     public WebElement returnFlightProviderName(){return driver.findElement(returnFlightProviderName);}
-    public WebElement originAirport(){return driver.findElement(originAirport);}
-    public WebElement returnAirport(){return driver.findElement(returnAirport);}
+
 
 
 

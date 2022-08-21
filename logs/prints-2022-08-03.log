@@ -1,3 +1,0 @@
-15:13:02.119 [AsyncHttpClient-1-2] DEBUG org.asynchttpclient.netty.channel.ChannelManager - Adding key: http://localhost:53187 for channel [id: 0xa98bfb13, L:/127.0.0.1:58119 - R:localhost/127.0.0.1:53187]
-15:13:02.120 [AsyncHttpClient-1-2] TRACE io.netty.handler.logging.LoggingHandler - [id: 0xa98bfb13, L:/127.0.0.1:58119 - R:localhost/127.0.0.1:53187] READ COMPLETE
-15:13:02.128 [AsyncHttpClient-1-2] TRACE io.netty.handler.logging.LoggingHandler - [id: 0xa98bfb13, L:/127.0.0.1:58119 - R:localhost/127.0.0.1:53187] READ COMPLETE

@@ -1,0 +1,6 @@
+Academy/App.class
+pageObjects/HomePage.class
+base/ConfigReader.class
+base/Base.class
+pageObjects/PaymentPage.class
+pageObjects/FlightsPage.class

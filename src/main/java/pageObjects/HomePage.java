@@ -1,18 +1,17 @@
 package pageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+
+import java.util.List;
 
 public class HomePage {
 
 	public WebDriver driver;
 	HomePage homePage;
 
-
-	//List<WebElement> origin = originDays();
-	//int departureDay = Integer.parseInt(ConfigReader.getProperty("departureDay"));
 	By flightSearch = By.id("FlightSearchFormWrapper");
 	By welcome_header = By.xpath("//div/h1[@class='flight-landing-h1']");
 	By originInput = By.id("OriginInput");
@@ -27,13 +26,11 @@ public class HomePage {
 	By returnDayField = By.id("ReturnDate");
 	By transitFilter = By.xpath("//div/label/input[@id='transitFilter']");
 	By findTicket = By.xpath("//div/button[@data-testid='formSubmitButton']");
+	By forwardDateButton = By.xpath("//div[contains(@aria-label,'forward')]");
+
 
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
-	}
-
-	public WebElement flightSearch() {
-		return driver.findElement(flightSearch);
 	}
 
 	public WebElement welcomeHeader() {
@@ -81,11 +78,17 @@ public class HomePage {
 	public WebElement findTicket() {
 		return driver.findElement(findTicket);
 	}
+	public WebElement forwardDateButton() {
+		return driver.findElement(forwardDateButton);
+	}
+
 
 	public WebElement daySelecter(int number) {
 		return this.driver.findElements(originCalenderDays).get(number);
 	}
-
+	public List<WebElement> originDays(){
+		return (List<WebElement>) this.driver.findElements(originCalenderDays);
+	}
 
 
 	public boolean transitFilterCheck(boolean filter) {
@@ -95,19 +98,46 @@ public class HomePage {
 		}
 		return filter;
 	}
+	/*
+	public void dayPicker(int number1){
+		List<WebElement> origin = (List<WebElement>) originDays();
+		if(number1 >origin.size()) {
 
-}
+			forwardDateButton().click();
+			forwardDateButton().click();
 
-
-	/*public void dayPicker(int number1){
-		for (int i = 0; i <number1+1; i++) {
-			if (i==number1){
-				origin.get(i).click();
-			}
-			else{
-				i++;
+			List<WebElement> origin2 = (List<WebElement>) originDays();
+			number1 = origin.size() - number1;
+			for (int i = 0; i < number1 + 1; i++) {
+				if (i == number1) {
+					origin2.get(i).click();
+				} else {
+					i++;
+				}
 			}
 		}
-
+		else{
+			List<WebElement> origin3 = (List<WebElement>) originDays();
+			for (int i = 0; i <number1+1; i++) {
+				if (i==number1){
+					origin3.get(i).click();
+				}
+				else{
+					i++;
+				}
+			}
+		}
 	}*/
+
+	public static void scroller(WebDriver driver){
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeScript("window.scrollBy(0,200)");
+	}
+
+
+
+
+
+
+}
 

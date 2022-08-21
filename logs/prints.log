@@ -1,3 +1,0 @@
-19:03:37.195 [AsyncHttpClient-1-2] TRACE io.netty.handler.logging.LoggingHandler - [id: 0x0754dd14, L:/127.0.0.1:51287 ! R:localhost/127.0.0.1:51364] INACTIVE
-19:03:37.196 [AsyncHttpClient-1-2] DEBUG org.asynchttpclient.netty.handler.HttpHandler - Channel Closed: [id: 0x0754dd14, L:/127.0.0.1:51287 ! R:localhost/127.0.0.1:51364] with attribute DISCARD
-19:03:37.196 [AsyncHttpClient-1-2] TRACE io.netty.handler.logging.LoggingHandler - [id: 0x0754dd14, L:/127.0.0.1:51287 ! R:localhost/127.0.0.1:51364] UNREGISTERED

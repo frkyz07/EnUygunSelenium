@@ -1,4 +1,0 @@
-22:20:27.408 [main] DEBUG freemarker.cache - "spark/partials/standard-content.ftl"("tr_TR", UTF-8, parsed) cached copy not yet stale; using cached.
-22:20:27.411 [main] DEBUG freemarker.cache - Couldn't find template in cache for "spark/partials/exceptýon.ftl"("tr_TR", UTF-8, parsed); will try to load it.
-22:20:27.413 [main] DEBUG freemarker.cache - TemplateLoader.findTemplateSource("spark/partials/exceptýon_tr_TR.ftl"): Not found
-22:20:27.415 [main] DEBUG freemarker.cache - TemplateLoader.findTemplateSource("spark/partials/exceptýon_tr.ftl"): Not found
