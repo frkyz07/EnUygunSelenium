@@ -1,8 +1,6 @@
 package src.test.Academy;
 
 import java.io.IOException;
-
-
 import io.qameta.allure.Description;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.*;
