@@ -12,7 +12,6 @@ public class FlightsPage {
 
 
     String provider = ConfigReader.getProperty("provider");
-
     By originFlightPicker = By.xpath("(//div[contains(@data-booking-provider,'"+provider+"')])[1]");
     By returnFlightPicker = By.xpath("(//div[contains(@data-booking-provider,'"+provider+"')])[2]//div[@class='flight-summary-radio']");
     By packagePicker = By.id("tooltipTarget_0");

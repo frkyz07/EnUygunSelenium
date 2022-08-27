@@ -17,7 +17,6 @@ public class PaymentPage {
     public PaymentPage(WebDriver driver) {
         this.driver = driver;
     }
-
     public WebElement reservationTitle() {
         return driver.findElement(reservationTitle);
     }
@@ -31,8 +30,6 @@ public class PaymentPage {
         return driver.findElement(flightProviderName);
     }
     public WebElement returnFlightProviderName(){return driver.findElement(returnFlightProviderName);}
-
-
 
 
 }

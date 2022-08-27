@@ -126,7 +126,6 @@ public class GetTicketsTest extends BaseTest {
 			logger.error("One way check box could not checked " + e);
 		}
 	}
-
 	@Test(priority = 8)
 	@Description("PickingReturnDate")
 	public void PickingReturnDate() {
@@ -182,7 +181,6 @@ public class GetTicketsTest extends BaseTest {
 			logger.error("Origin flight could not selected "+e);
 		}
 	}
-
 	@Test(priority = 12)
 	@Description("PickReturnTicket")
 	public void PickReturnTicket() {
@@ -232,6 +230,5 @@ public class GetTicketsTest extends BaseTest {
 	public void destroyIt() {
 		driver.quit();
 	}
-
-	}
+}
 

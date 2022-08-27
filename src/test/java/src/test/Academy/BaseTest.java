@@ -21,10 +21,6 @@ public class BaseTest extends Base {
     static PaymentPage paymentPage;
     static Helper helper;
 
-    public String returnDateName;
-    public String departureDateName;
-    public String startFlightProviderName;
-    public String returnFlightProviderName;
 
     @BeforeClass
     public WebDriver initialize() throws IOException {
@@ -33,20 +29,5 @@ public class BaseTest extends Base {
         driver.get(helper.conReader("url"));
         return this.driver;
     }
-
-    public String GetDepartureDay(){
-        return departureDateName = homePage.departureDate().getAttribute("value");
-    }
-    public String GetReturnDay(){
-        return returnDateName = homePage.returnDayField().getAttribute("value");
-    }
-    public String GetStartFlightProviderName(){
-        return startFlightProviderName = flightsPage.startFlightProvider().getText();
-    }
-    public String GetReturnFlightProviderName(){
-        return returnFlightProviderName = flightsPage.returnFlightProvider().getAttribute("alt");
-    }
-
-
 
 }
