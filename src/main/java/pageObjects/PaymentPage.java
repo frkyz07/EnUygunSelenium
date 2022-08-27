@@ -9,8 +9,8 @@ public class PaymentPage {
     public WebDriver driver;
 
     By reservationTitle = By.xpath("//div[@class='reservationTitle']/strong");
-    By startDate = By.xpath("//div/span[@data-testid='DepartureFlightDateTime']");
-    By returnDate = By.xpath("(//div[@data-airline='Corendon Airlines']//div/span[@data-testid='DepartureFlightDateTime'])[2]");
+    By startDate = By.xpath("(//div/span[@data-testid='DepartureFlightDateTime'])[1]");
+    By returnDate = By.xpath("(//div/span[@data-testid='DepartureFlightDateTime'])[2]");
     By flightProviderName = By.xpath("//div[@id='flightItemdeparture']//div[@class='airline-name']/span");
     By returnFlightProviderName = By.xpath("//div[@data-testid='flightItemreturn1']//div[@class='airline-name']/span");
 
