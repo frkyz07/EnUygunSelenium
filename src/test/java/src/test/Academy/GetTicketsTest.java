@@ -1,10 +1,15 @@
 package src.test.Academy;
 
 import java.io.IOException;
+
+
+import io.qameta.allure.Description;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -14,10 +19,10 @@ import pageObjects.FlightsPage;
 import pageObjects.HomePage;
 import pageObjects.PaymentPage;
 
-@SuppressWarnings("unused")
-public class HomePageTest extends BaseTest {
+@Slf4j
+public class GetTicketsTest extends BaseTest {
 
-	private static Logger logger = LoggerFactory.getLogger(HomePageTest.class);
+	private static Logger logger = LoggerFactory.getLogger(GetTicketsTest.class);
 
 	// initilazation the driver
 	@BeforeClass
@@ -28,6 +33,7 @@ public class HomePageTest extends BaseTest {
 	}
 	// start to test
 	@Test(priority = 1)
+	@Description("HomePageVerification")
 	public void HomePageVerification() throws InterruptedException {
 
 		// check the url
@@ -40,32 +46,35 @@ public class HomePageTest extends BaseTest {
 		}
 	}
 	@Test(priority = 2)
+	@Description("SendingTheOriginText")
 	public void SendingTheOriginText(){
 		// sending the origin text
 		try {
 			Assert.assertTrue(homePage.originInput().isDisplayed());
 			Assert.assertTrue(homePage.originInput().isEnabled());
 			homePage.originInput().click();
-			homePage.originInput().sendKeys(helper.origin());
+			helper.inPutter(homePage.originInput(),helper.origin());
 			logger.info("Origin input clicked");
 		} catch (ElementClickInterceptedException | AssertionError e) {
 			logger.error("Origin input could not clicked " +e );
 		}
 	}
 	@Test(priority = 3)
+	@Description("SendingTheDestinationText")
 	public void SendingTheDestinationText() {
 		// sending the destination text
 		try {
 			Assert.assertTrue(homePage.originCitySelect().isDisplayed());
 			Assert.assertTrue(homePage.originCitySelect().isEnabled());
 			homePage.originCitySelect().click();
-			homePage.destinationInput().sendKeys(helper.destination());
+			helper.inPutter(homePage.destinationInput(),helper.destination());
 			logger.info("Origin city added");
 		} catch (ElementClickInterceptedException | NoSuchElementException e) {
 			logger.error("Origin city could not added "+e);
 		}
 	}
 	@Test(priority = 4)
+	@Description("DestinaitonCitySelection")
 	public void DestinaitonCitySelection() {
 		// Destionaiton city selected
 		try {
@@ -78,6 +87,7 @@ public class HomePageTest extends BaseTest {
 		}
 	}
 	@Test(priority = 5)
+	@Description("OpenOriginDate")
 	public void OpenOriginDate() {
 		// Origin date opened
 		try {
@@ -90,6 +100,7 @@ public class HomePageTest extends BaseTest {
 		}
 	}
 	@Test(priority = 6)
+	@Description("SelectDepartureDay")
 	public void SelectDepartureDay() {
 		try {
 			// scroller the page for selection item
@@ -104,6 +115,7 @@ public class HomePageTest extends BaseTest {
 		}
 	}
 	@Test(priority = 7)
+	@Description("UncheckOneDayCheckBox")
 	public void UncheckOneDayCheckBox() {
 		// Uncheck the one way checkbox
 		try {
@@ -118,6 +130,7 @@ public class HomePageTest extends BaseTest {
 	}
 
 	@Test(priority = 8)
+	@Description("PickingReturnDate")
 	public void PickingReturnDate() {
 		// getting the date for assertion later in the test
 		// picking the return date
@@ -132,6 +145,7 @@ public class HomePageTest extends BaseTest {
 		}
 	}
 	@Test(priority = 9)
+	@Description("CheckTransitCheckBox")
 	public void CheckTransitCheckBox() {
 		// getting the values for later assetions
 
@@ -145,6 +159,7 @@ public class HomePageTest extends BaseTest {
 		}
 	}
 	@Test(priority = 10)
+	@Description("ClickFindTicket")
 	public void ClickFindTicket() {
 		// clicking the find ticket button
 		try {
@@ -157,6 +172,7 @@ public class HomePageTest extends BaseTest {
 		}
 	}
 	@Test(priority = 11)
+	@Description("PickOriginTicket")
 	public void PickOriginTicket() {
 		// picking the origin flight
 		try {
@@ -170,6 +186,7 @@ public class HomePageTest extends BaseTest {
 	}
 
 	@Test(priority = 12)
+	@Description("PickReturnTicket")
 	public void PickReturnTicket() {
 		// getting the value for later test assertions
 		// picking the return flight
@@ -183,9 +200,9 @@ public class HomePageTest extends BaseTest {
 		}
 	}
 	@Test(priority = 13)
+	@Description("PickThePackage")
 	public void PickThePackage() {
 		// getting the value for later testing
-
 		// picking the package
 		try {
 			Assert.assertTrue(flightsPage.packagePicker().isDisplayed());
@@ -197,6 +214,7 @@ public class HomePageTest extends BaseTest {
 		}
 	}
 	@Test(priority = 14)
+	@Description("Asseertions")
 	public void Asseertions() {
 		// Asseritons added
 		try {

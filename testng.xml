@@ -6,7 +6,7 @@
 
 	<test name="homepage">
 		<classes>
-			<class name="src.test.Academy.HomePageTest" />
+			<class name="src.test.Academy.GetTicketsTest" />
 		</classes>
 	</test>
 	 <!-- Test -->
