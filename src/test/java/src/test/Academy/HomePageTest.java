@@ -117,7 +117,7 @@ public class HomePageTest extends BaseTest {
 		}
 	}
 
-	@Test(priority = 9)
+	@Test(priority = 8)
 	public void PickingReturnDate() {
 		// getting the date for assertion later in the test
 		// picking the return date
@@ -131,7 +131,7 @@ public class HomePageTest extends BaseTest {
 			logger.error("Return day could not selected "+e);
 		}
 	}
-	@Test(priority = 11)
+	@Test(priority = 9)
 	public void CheckTransitCheckBox() {
 		// getting the values for later assetions
 
@@ -144,7 +144,7 @@ public class HomePageTest extends BaseTest {
 			logger.error("Is direct check box could not selected "+e);
 		}
 	}
-	@Test(priority = 12)
+	@Test(priority = 10)
 	public void ClickFindTicket() {
 		// clicking the find ticket button
 		try {
@@ -156,7 +156,7 @@ public class HomePageTest extends BaseTest {
 			logger.error("Find ticker could not selected "+e);
 		}
 	}
-	@Test(priority = 13)
+	@Test(priority = 11)
 	public void PickOriginTicket() {
 		// picking the origin flight
 		try {
@@ -169,7 +169,7 @@ public class HomePageTest extends BaseTest {
 		}
 	}
 
-	@Test(priority = 15)
+	@Test(priority = 12)
 	public void PickReturnTicket() {
 		// getting the value for later test assertions
 		// picking the return flight
@@ -182,7 +182,7 @@ public class HomePageTest extends BaseTest {
 			logger.error("Return flight couldnt clicked "+e);
 		}
 	}
-	@Test(priority = 17)
+	@Test(priority = 13)
 	public void PickThePackage() {
 		// getting the value for later testing
 
@@ -196,7 +196,7 @@ public class HomePageTest extends BaseTest {
 			logger.error("Package picker could not clicked "+e);
 		}
 	}
-	@Test(priority = 18)
+	@Test(priority = 14)
 	public void Asseertions() {
 		// Asseritons added
 		try {
