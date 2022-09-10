@@ -41,14 +41,12 @@ public class Base {
 
 		} else if (browserName.equals("safari")) {
 			WebDriverManager.safaridriver().setup();
-
 			driver = new SafariDriver();
 		}
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		return driver;
-
 	}
 
 }

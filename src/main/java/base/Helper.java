@@ -34,18 +34,12 @@ public class Helper {
         return configReader.getProperty(properties);
     }
     // getting properties
-    public String url(){
-        return conReader("url");
-    }
-    public String origin(){
-        return conReader("origin");
-    }
+    public String url(){return conReader("url");}
+    public String origin(){return conReader("origin");}
     public String destination(){
         return conReader("destination");
     }
-    public int departureDay(){
-       return Integer.parseInt(conReader("departureDay"));
-    }
+    public int departureDay(){return Integer.parseInt(conReader("departureDay"));}
     public int returnDay(){
        return Integer.parseInt(conReader("returnDay"));
     }

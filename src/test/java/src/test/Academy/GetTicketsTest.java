@@ -28,8 +28,8 @@ public class GetTicketsTest extends BaseTest {
 		paymentPage = new PaymentPage(driver);
 	}
 	// start to test
-	@Test(priority = 1, description = "selam")
-	@Description("HomePageVerification")
+	@Test(priority = 1, description = "HomePageVerification")
+	@Description("Open the website")
 	public void HomePageVerification() throws InterruptedException {
 
 		// check the url
@@ -41,8 +41,8 @@ public class GetTicketsTest extends BaseTest {
 			logger.error("Driver checked, Driver url is not correct" + e);
 		}
 	}
-	@Test(priority = 2)
-	@Description("SendingTheOriginText")
+	@Test(priority = 2, description = "SendingTheOriginText")
+	@Description("Send the origin city name")
 	public void SendingTheOriginText(){
 		// sending the origin text
 		try {
@@ -55,8 +55,8 @@ public class GetTicketsTest extends BaseTest {
 			logger.error("Origin input could not clicked " +e );
 		}
 	}
-	@Test(priority = 3)
-	@Description("SendingTheDestinationText")
+	@Test(priority = 3, description = "SendingTheDestinationText")
+	@Description("Send the destination city name ")
 	public void SendingTheDestinationText() {
 		// sending the destination text
 		try {
@@ -69,8 +69,8 @@ public class GetTicketsTest extends BaseTest {
 			logger.error("Origin city could not added "+e);
 		}
 	}
-	@Test(priority = 4)
-	@Description("DestinaitonCitySelection")
+	@Test(priority = 4, description = "DestinaitonCitySelection")
+	@Description("Select the destination city")
 	public void DestinaitonCitySelection() {
 		// Destionaiton city selected
 		try {
@@ -82,8 +82,8 @@ public class GetTicketsTest extends BaseTest {
 			logger.error("Destination city could not added "+e);
 		}
 	}
-	@Test(priority = 5)
-	@Description("OpenOriginDate")
+	@Test(priority = 5, description = "OpenOriginDate")
+	@Description("Open the origin date selector and select the date")
 	public void OpenOriginDate() {
 		// Origin date opened
 		try {
@@ -95,23 +95,23 @@ public class GetTicketsTest extends BaseTest {
 			logger.error("Origin Date calendar could ot opened "+e);
 		}
 	}
-	@Test(priority = 6)
-	@Description("SelectDepartureDay")
+	@Test(priority = 6, description = "SelectDepartureDay")
+	@Description("Open the departure date selector and select the date")
 	public void SelectDepartureDay() {
 		try {
 			// scroller the page for selection item
 			// selecting the departure day
 			homePage.scroller(driver);
 			Assert.assertTrue(homePage.daySelecter(helper.departureDay()).isDisplayed());
-			Assert.assertTrue(homePage.daySelecter(helper.departureDay()).isDisplayed());
+			Assert.assertTrue(homePage.daySelecter(helper.departureDay()).isEnabled());
 			homePage.daySelecter(helper.departureDay()).click();
 			logger.info("Departure day selected");
 		} catch (IndexOutOfBoundsException | NoSuchElementException e) {
 			logger.error("Departure day could not selected "+e);
 		}
 	}
-	@Test(priority = 7)
-	@Description("UncheckOneDayCheckBox")
+	@Test(priority = 7, description = "UncheckOneDayCheckBox")
+	@Description("Uncheck the one day check box")
 	public void UncheckOneDayCheckBox() {
 		// Uncheck the one way checkbox
 		try {
@@ -124,8 +124,8 @@ public class GetTicketsTest extends BaseTest {
 			logger.error("One way check box could not checked " + e);
 		}
 	}
-	@Test(priority = 8)
-	@Description("PickingReturnDate")
+	@Test(priority = 8, description = "PickingReturnDate")
+	@Description("Pick the return date")
 	public void PickingReturnDate() {
 		// getting the date for assertion later in the test
 		// picking the return date
@@ -139,8 +139,8 @@ public class GetTicketsTest extends BaseTest {
 			logger.error("Return day could not selected "+e);
 		}
 	}
-	@Test(priority = 9)
-	@Description("CheckTransitCheckBox")
+	@Test(priority = 9, description = "CheckTransitCheckBox")
+	@Description("Uncheck the transit flight checkbox")
 	public void CheckTransitCheckBox() {
 		// getting the values for later assetions
 
@@ -153,8 +153,8 @@ public class GetTicketsTest extends BaseTest {
 			logger.error("Is direct check box could not selected "+e);
 		}
 	}
-	@Test(priority = 10)
-	@Description("ClickFindTicket")
+	@Test(priority = 10, description = "ClickFindTicket")
+	@Description("Click the find ticket button")
 	public void ClickFindTicket() {
 		// clicking the find ticket button
 		try {
@@ -166,8 +166,8 @@ public class GetTicketsTest extends BaseTest {
 			logger.error("Find ticker could not selected "+e);
 		}
 	}
-	@Test(priority = 11)
-	@Description("PickOriginTicket")
+	@Test(priority = 11, description = "PickOriginTicket")
+	@Description("Picking the origin flight")
 	public void PickOriginTicket() {
 		// picking the origin flight
 		try {
@@ -179,8 +179,8 @@ public class GetTicketsTest extends BaseTest {
 			logger.error("Origin flight could not selected "+e);
 		}
 	}
-	@Test(priority = 12)
-	@Description("PickReturnTicket")
+	@Test(priority = 12, description = "PickReturnTicket")
+	@Description("Picking the return flight")
 	public void PickReturnTicket() {
 		// getting the value for later test assertions
 		// picking the return flight
@@ -193,8 +193,8 @@ public class GetTicketsTest extends BaseTest {
 			logger.error("Return flight couldnt clicked "+e);
 		}
 	}
-	@Test(priority = 13)
-	@Description("PickThePackage")
+	@Test(priority = 13, description = "PickReturnTicket")
+	@Description("Picking the flight package")
 	public void PickThePackage() {
 		// getting the value for later testing
 		// picking the package
@@ -207,8 +207,8 @@ public class GetTicketsTest extends BaseTest {
 			logger.error("Package picker could not clicked "+e);
 		}
 	}
-	@Test(priority = 14)
-	@Description("Assertions")
+	@Test(priority = 14, description = "PickReturnTicket")
+	@Description("Checking the Assertions")
 	public void Asseertions() {
 		// Asseritons added
 		try {
@@ -220,8 +220,7 @@ public class GetTicketsTest extends BaseTest {
 			//		paymentPage.returnFlightProviderName().getText()); // check airline
 			logger.info("Last assertion passed");
 		} catch (AssertionError e) {
-			System.out.println("Your values dont match " + e);
-			logger.error("Last assertions could not passed");
+			logger.error("Last assertions could not passed "+ e);
 		}
 	}
 	@AfterClass(enabled = false)

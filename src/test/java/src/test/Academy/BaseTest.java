@@ -26,7 +26,7 @@ public class BaseTest extends Base {
     public WebDriver initialize() throws IOException {
         driver = initializeDriver();
         helper = new Helper(driver);
-        driver.get(helper.conReader("url"));
+        driver.get(Helper.conReader("url"));
         return this.driver;
     }
 
