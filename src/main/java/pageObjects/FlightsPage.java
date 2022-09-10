@@ -14,7 +14,7 @@ public class FlightsPage {
     String provider = ConfigReader.getProperty("provider");
     By originFlightPicker = By.xpath("(//div[contains(@data-booking-provider,'"+provider+"')])[1]");
     By returnFlightPicker = By.xpath("(//div[contains(@data-booking-provider,'"+provider+"')])[2]//div[@class='flight-summary-radio']");
-    By packagePicker = By.id("tooltipTarget_0");
+    By packagePicker = By.xpath("//div[@data-package-provider='tuned_price,direct_flight_data']//button");
     By startFlightProvider = By.xpath("(//div/img[@class='airline-icon'])[1]");
     By returnFlightProvider = By.xpath("(//div/img[@class='airline-icon'])[2]");
 

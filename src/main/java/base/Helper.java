@@ -49,7 +49,7 @@ public class Helper {
     public int returnDay(){
        return Integer.parseInt(conReader("returnDay"));
     }
-   public boolean isDirect(){
+    public boolean isDirect(){
         return Boolean.parseBoolean(conReader("isDirect"));
    }
     public String assertionReader(String properties){

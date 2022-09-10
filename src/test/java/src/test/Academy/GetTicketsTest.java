@@ -9,9 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import pageObjects.FlightsPage;
 import pageObjects.HomePage;
@@ -30,7 +28,7 @@ public class GetTicketsTest extends BaseTest {
 		paymentPage = new PaymentPage(driver);
 	}
 	// start to test
-	@Test(priority = 1)
+	@Test(priority = 1, description = "selam")
 	@Description("HomePageVerification")
 	public void HomePageVerification() throws InterruptedException {
 
@@ -148,7 +146,7 @@ public class GetTicketsTest extends BaseTest {
 
 		// check the transit checkbox
 		try {
-			Assert.assertTrue(helper.isDirect());
+			Assert.assertFalse(helper.isDirect());
 			homePage.transitFilterCheck(helper.isDirect());
 			logger.info("Is direct check box selected");
 		} catch (NullPointerException e) {
@@ -210,7 +208,7 @@ public class GetTicketsTest extends BaseTest {
 		}
 	}
 	@Test(priority = 14)
-	@Description("Asseertions")
+	@Description("Assertions")
 	public void Asseertions() {
 		// Asseritons added
 		try {
